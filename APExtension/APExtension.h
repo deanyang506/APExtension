@@ -3,7 +3,7 @@
 //  Captain Black
 //
 //  Created by Captain Black on 16/6/1.
-//  Copyright © 2016年 Captain Black. All rights reserved.
+//  Copyright © 2016年 www.aipai.com. All rights reserved.
 //
 
 #ifndef APExtension_h
