@@ -1,2 +1,2 @@
 # APExtension
-pod 'APExtension', git: 'https://github.com/idean506/APExtension.git'
+pod 'APExtension', git: 'https://github.com/deanyang506/APExtension.git'
