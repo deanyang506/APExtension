@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- * AES向量
- */
-extern char *AESVectorString;
+static NSString *AESgIv = @"AD8BB59CE350BBC7";
 
 @interface NSData (APExtension)
 /**
@@ -37,17 +34,25 @@ extern char *AESVectorString;
  */
 - (NSString *)sha1String NS_AVAILABLE_IOS(2_0);
 
-/**
- *  ASE加密
- *  @param key 加密Key
- */
-- (NSData *)AES256EncryptWithKey:(NSString *)key;
 
 /**
- *  ASE解密
- *  @param key 解密Key
+ AES128加密
+
+ @param key 加密key
+ @param gIv 向量16位字符，或传入默认的AESgIv
+ @return 加密后数据
  */
-- (NSData *)AES256DecryptWithKey:(NSString *)key;
+- (NSData *)AES128EncryptWithKey:(NSString *)key gIv:(NSString *)gIv;
+
+
+/**
+ AES128解密
+
+ @param key 解密key
+ @param gIv 向量16位字符，或传入默认的AESgIv
+ @return 解密后数据
+ */
+- (NSData *)AES128DecryptWithKey:(NSString *)key gIv:(NSString *)gIv;
 
 /**
  *  把二进制数据转化成十六进制字符串形式
