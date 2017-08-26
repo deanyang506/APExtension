@@ -19,7 +19,4 @@
 #import "NSDictionary+APExtension.h"
 #import "UIResponder+APExtension.h"
 
-BOOL APSwizzleClassMethod(Class class, SEL originalSelector, SEL swizzledSelector);
-void APSwizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector);
-
 #endif /* APExtension_h */
