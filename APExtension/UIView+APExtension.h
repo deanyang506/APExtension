@@ -12,8 +12,8 @@
 
 @property (nonatomic, assign) CGFloat x;
 @property (nonatomic, assign) CGFloat y;
-@property (nonatomic, assign) CGFloat w;
-@property (nonatomic, assign) CGFloat h;
+@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGPoint origin;
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGFloat maxX;//最小不能小于x, 影响w

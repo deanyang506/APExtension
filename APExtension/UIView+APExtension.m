@@ -33,23 +33,23 @@
     self.frame = rc;
 }
 
-- (CGFloat)w {
+- (CGFloat)width {
     return self.frame.size.width;
 }
 
-- (void)setW:(CGFloat)w {
+- (void)setWidth:(CGFloat)width {
     CGRect rc = self.frame;
-    rc.size.width = w;
+    rc.size.width = width;
     self.frame = rc;
 }
 
-- (CGFloat)h {
+- (CGFloat)height {
     return self.frame.size.height;
 }
 
-- (void)setH:(CGFloat)h {
+- (void)setHeight:(CGFloat)height {
     CGRect rc = self.frame;
-    rc.size.height = h;
+    rc.size.height = height;
     self.frame = rc;
 }
 
