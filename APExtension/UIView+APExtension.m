@@ -11,7 +11,7 @@
 #import <OpenGLES/ES1/gl.h>
 
 @implementation UIView (APExtension)
-@dynamic x, y, width, height, maxX, maxY, centerX, centerY;
+@dynamic x, y, w, h, width, height, maxX, maxY, centerX, centerY;
 
 - (CGFloat)x {
     return self.frame.origin.x;
@@ -30,6 +30,26 @@
 - (void)setY:(CGFloat)y {
     CGRect rc = self.frame;
     rc.origin.y = y;
+    self.frame = rc;
+}
+
+- (CGFloat)w {
+    return self.frame.size.width;
+}
+
+- (void)setW:(CGFloat)w {
+    CGRect rc = self.frame;
+    rc.size.width = w;
+    self.frame = rc;
+}
+
+- (CGFloat)h {
+    return self.frame.size.height;
+}
+
+- (void)setH:(CGFloat)h {
+    CGRect rc = self.frame;
+    rc.size.height = h;
     self.frame = rc;
 }
 
