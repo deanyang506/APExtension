@@ -89,6 +89,24 @@ NS_INLINE CGFloat CGPointValueWithPixel(NSUInteger pixel) {
     return image;
 }
 
+- (UIImage *)imageClipByCircleWithRadius:(CGFloat)radius {
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    CGContextRef ctxRef = UIGraphicsGetCurrentContext();
+    
+    CGContextAddArc(ctxRef, self.size.width / 2, self.size.height / 2, radius, 0, 2*M_PI, 0);
+    
+    CGContextClosePath(ctxRef);
+    CGContextClip(ctxRef);
+    
+    CGContextTranslateCTM(ctxRef, 0, self.size.height);
+    CGContextScaleCTM(ctxRef, 1, -1);
+    CGContextDrawImage(ctxRef, CGRectMake(0, 0, self.size.width, self.size.height), self.CGImage);
+    
+    UIImage *newimage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newimage;
+}
+
 - (UIImage *)imageWithTopLefRadius:(CGFloat)topLeftRadius topRightRadius:(CGFloat)topRightRadius bottomRightRadius:(CGFloat)bottomRightRadius bottomLeftRadius:(CGFloat)bottomLeftRadius {
     
     UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);

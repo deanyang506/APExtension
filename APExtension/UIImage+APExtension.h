@@ -89,6 +89,15 @@ NS_INLINE CGFloat CGPointValueWithPixel(NSUInteger pixel);
 /**
  *  图片剪切圆角
  *
+ *  @param radius 弧度
+ *
+ *  @return 新的UIImage对象
+ */
+- (UIImage *)imageClipByCircleWithRadius:(CGFloat)radius;
+
+/**
+ *  图片剪切圆角
+ *
  *  @param topLeftRadius     左上角弧度
  *  @param topRightRadius    右上角弧度
  *  @param bottomRightRadius 右下角弧度
