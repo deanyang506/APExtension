@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
+    UIBorderSideTypeAll  = 0,
+    UIBorderSideTypeTop = 1 << 0,
+    UIBorderSideTypeBottom = 1 << 1,
+    UIBorderSideTypeLeft = 1 << 2,
+    UIBorderSideTypeRight = 1 << 3,
+};
+
 @interface UIView (APExtension)
 
 @property (nonatomic, assign) CGFloat x;
@@ -36,5 +44,17 @@
  *  @param radius 弧度
  */
 - (void)setRoundedCorners:(UIRectCorner)corners radius:(CGFloat)radius;
+
+
+/**
+ 添加边线
+
+ @param color 颜色
+ @param borderWidth 边框尺寸
+ @param borderType 指定边框
+ @return
+ */
+- (CALayer *)borderForColor:(UIColor *)color borderWidth:(CGFloat)borderWidth borderType:(UIBorderSideType)borderType;
+
 
 @end
