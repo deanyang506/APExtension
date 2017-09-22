@@ -205,30 +205,34 @@
         self.layer.borderColor = color.CGColor;
     }
     
-    CAShapeLayer *shapeLayer;
+    
+    CAShapeLayer *shapeLayers = [CAShapeLayer layer], *shapeLayer;
     /// 左侧
     if (borderType & UIBorderSideTypeLeft) {
         shapeLayer = [self addLineOriginPoint:CGPointMake(0.f, 0.f) toPoint:CGPointMake(0.0f, self.frame.size.height) color:color borderWidth:borderWidth];
+        [shapeLayers addSublayer:shapeLayer];
     }
     
     /// 右侧
     if (borderType & UIBorderSideTypeRight) {
         shapeLayer = [self addLineOriginPoint:CGPointMake(self.frame.size.width, 0.0f) toPoint:CGPointMake( self.frame.size.width, self.frame.size.height) color:color borderWidth:borderWidth];
+        [shapeLayers addSublayer:shapeLayer];
     }
     
     /// top
     if (borderType & UIBorderSideTypeTop) {
         shapeLayer = [self addLineOriginPoint:CGPointMake(0.0f, 0.0f) toPoint:CGPointMake(self.frame.size.width, 0.0f) color:color borderWidth:borderWidth];
+        [shapeLayers addSublayer:shapeLayer];
     }
     
     /// bottom
     if (borderType & UIBorderSideTypeBottom) {
         shapeLayer = [self addLineOriginPoint:CGPointMake(0.0f, self.frame.size.height) toPoint:CGPointMake( self.frame.size.width, self.frame.size.height) color:color borderWidth:borderWidth];
+        [shapeLayers addSublayer:shapeLayer];
     }
     
-    [self.layer addSublayer:shapeLayer];
-    
-    return shapeLayer;
+    [self.layer addSublayer:shapeLayers];
+    return shapeLayers;
 }
 
 - (CAShapeLayer *)addLineOriginPoint:(CGPoint)p0 toPoint:(CGPoint)p1 color:(UIColor *)color borderWidth:(CGFloat)borderWidth {
