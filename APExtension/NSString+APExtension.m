@@ -64,4 +64,8 @@
     return size;
 }
 
+- (NSString *)stringByTrimming {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
 @end

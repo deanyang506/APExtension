@@ -52,4 +52,11 @@
  */
 - (CGSize)calculateWidthWithHeight:(CGFloat)height font:(CGFloat)font;
 
+/**
+ 去除前后空格
+
+ @return
+ */
+- (NSString *)stringByTrimming;
+
 @end
