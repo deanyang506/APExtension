@@ -65,6 +65,6 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
  *  param lineColor:      虚线的颜色
  *  param lineDirection   虚线的方向  YES 为水平方向， NO 为垂直方向
  **/
-- (void)drawDashLineWithLineLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor lineDirection:(BOOL)isHorizonal;
+- (CAShapeLayer *)drawDashLineWithLineLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor lineDirection:(BOOL)isHorizonal;
 
 @end

@@ -253,7 +253,7 @@
     return shapeLayer;
 }
 
-- (void)drawDashLineWithLineLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor lineDirection:(BOOL)isHorizonal {
+- (CAShapeLayer *)drawDashLineWithLineLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor lineDirection:(BOOL)isHorizonal {
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     [shapeLayer setBounds:self.bounds];
     if (isHorizonal) {
@@ -287,6 +287,7 @@
     CGPathRelease(path);
     //  把绘制好的虚线添加上来
     [self.layer addSublayer:shapeLayer];
+    return shapeLayer;
 }
 
 @end
