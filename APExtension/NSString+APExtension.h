@@ -30,7 +30,12 @@
 /**
  *  base64编码
  */
-- (NSString *)base64Encode;
+- (NSString *)base64StringFromText:(NSString *)text;
+
+/**
+ *  base64解码
+ */
+- (NSString *)textFromBase64String:(NSString *)base64;
 
 /**
  *  计算字符串高度 （多行）
