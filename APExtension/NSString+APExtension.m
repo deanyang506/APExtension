@@ -49,8 +49,9 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return result;
 }
 
-- (NSString *)base64StringFromText:(NSString *)text
+- (NSString *)base64StringFromText;
 {
+    NSString *text = [self copy];
     if (text && ![text isEqualToString:LocalStr_None]) {
         NSData *data = [text dataUsingEncoding:NSUTF8StringEncoding];
         NSString *string = [self base64EncodedStringFrom:data];
@@ -63,8 +64,9 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     }
 }
 
-- (NSString *)textFromBase64String:(NSString *)base64
+- (NSString *)textFromBase64String
 {
+    NSString *base64 = [self copy];
     if (base64 && ![base64 isEqualToString:LocalStr_None]) {
         NSData *data = [self dataWithBase64EncodedString:base64];
         NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
