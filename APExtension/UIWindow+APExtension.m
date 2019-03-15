@@ -43,29 +43,29 @@
 }
 
 - (UIViewController *)currentShowBottomController {
-    UIViewController *viewController = self.topViewController;
-    UIViewController *presentingViewController = viewController.presentingViewController;
-    while (presentingViewController) {
-        if (presentingViewController.presentingViewController && [presentingViewController.presentingViewController isViewLoaded] && presentingViewController.presentingViewController.view.window) {
-            presentingViewController = presentingViewController.presentingViewController;
+    UIViewController *topViewController = self.rootViewController;
+    while (topViewController) {
+        if (topViewController.presentedViewController) {
+            UIModalPresentationStyle p = topViewController.presentedViewController.modalPresentationStyle;
+            if (p == UIModalPresentationFullScreen) {
+                topViewController = topViewController.presentedViewController;
+            } else {
+                break;
+            }
         } else {
             break;
         }
     }
     
-    if (presentingViewController) {
-        viewController = presentingViewController;
+    if ([topViewController isKindOfClass:[UITabBarController class]]) {
+        topViewController = ((UITabBarController *)topViewController).selectedViewController;
     }
     
-    if ([viewController isKindOfClass:[UITabBarController class]]) {
-        viewController = ((UITabBarController *)viewController).selectedViewController;
+    if ([topViewController isKindOfClass:[UINavigationController class]]) {
+        topViewController = ((UINavigationController *)topViewController).topViewController;
     }
     
-    if ([viewController isKindOfClass:[UINavigationController class]]) {
-        viewController = ((UINavigationController *)viewController).topViewController;
-    }
-    
-    return viewController;
+    return topViewController;
 }
 
 @end
